@@ -23,14 +23,14 @@ export default function InvestorsPage() {
         <div className="md:col-span-2 space-y-6">
           <h2 className="text-2xl font-bold mb-6 text-white">Financial & Mission Reports</h2>
           <ReportCard 
-            title="Mission Success Memo: SG-1" 
+            title="Mission Success Memo: Gen-1 Launch" 
             date="Today"
             desc="Preliminary telemetry confirms nominal orbit insertion. Payload deployed successfully."
           />
           <ReportCard 
             title="Q4 2025 Quarterly Report" 
             date="Jan 15, 2026"
-            desc="Detailed breakdown of SG-1 engine testing results and Q1 2026 burn rate projections."
+            desc="Detailed breakdown of Gen-1 engine testing results and Q1 2026 burn rate projections."
           />
           <ReportCard 
             title="Series B Funding Memo" 

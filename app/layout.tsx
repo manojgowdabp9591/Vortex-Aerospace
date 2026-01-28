@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Space Gen",
     images: [
       {
-        url: "/social-preview.jpg", // Make sure you added this image to your public folder
+        url: "/social-preview.jpg",
         width: 1200,
         height: 630,
         alt: "Space Gen Launch Vehicle",
