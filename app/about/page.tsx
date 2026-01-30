@@ -75,7 +75,7 @@ export default function AboutPage() {
                 Manoj Gowda B P
               </p>
               <p className="text-sm text-white/40 uppercase tracking-widest mt-1">
-                Founder & CEO
+                Founder & Chairman
               </p>
             </div>
           </motion.div>
@@ -122,10 +122,10 @@ export default function AboutPage() {
 
             <div className="mt-10">
               <p className="text-2xl font-handwriting text-purple-400 font-bold glow-text">
-                [Co-Founder Name]
+                Sandeep S M
               </p>
               <p className="text-sm text-white/40 uppercase tracking-widest mt-1">
-                Co-Founder & CTO
+                Co-Founder & CEO
               </p>
             </div>
           </motion.div>
@@ -143,7 +143,7 @@ export default function AboutPage() {
             <div className="relative w-80 h-80 rounded-2xl overflow-hidden border border-white/20 shadow-[0_0_40px_rgba(168,85,247,0.2)]">
               {/* Ensure you have 'cofounder.jpg' in public folder */}
               <img
-                src="/cofounder.jpg"
+                src="/cofounder.jpeg"
                 alt="Co-Founder"
                 className="w-full h-full object-cover bg-neutral-900"
               />
