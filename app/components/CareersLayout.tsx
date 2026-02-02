@@ -8,7 +8,6 @@ export function PageWrapper({
   children: React.ReactNode;
 }) {
   return (
-    // CHANGED: Added "relative z-10", removed "bg-black"
     <div className="relative z-10 text-white min-h-screen px-6 py-32 max-w-5xl mx-auto">
       <h1 className="text-5xl font-extrabold mb-6">
         {title}

@@ -19,7 +19,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       x: 0, 
       opacity: 1, 
       transition: { 
-        type: "spring", // Explicitly defined string literal
+        type: "spring",
         stiffness: 300, 
         damping: 30 
       } 

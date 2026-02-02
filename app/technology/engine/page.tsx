@@ -73,7 +73,7 @@ export default function EnginePage() {
                 Technical Specifications
              </h4>
              <div className="space-y-4 font-mono text-sm">
-                <SpecRow label="Thrust (Vacuum)" value="120 kN" />
+                <SpecRow label="Thrust (Vacuum)" value="210 kN" />
                 <SpecRow label="Specific Impulse" value="345 sec" />
                 <SpecRow label="Chamber Pressure" value="85 bar" />
                 <SpecRow label="Propellant" value="Methalox (LCH4 / LOX)" />

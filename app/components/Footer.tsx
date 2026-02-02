@@ -33,7 +33,7 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-6">Resources</h3>
             <ul className="space-y-4 text-sm text-white/60">
-              <li><Link href="/#tech" className="hover:text-cyan-400 transition">Technology</Link></li>
+              <li><Link href="/technology/engine" className="hover:text-cyan-400 transition">Technology</Link></li>
               <li><Link href="/dashboard" className="hover:text-cyan-400 transition">Launch Dashboard</Link></li>
               <li><a href="#" className="hover:text-cyan-400 transition">Press Kit</a></li>
               <li><a href="#" className="hover:text-cyan-400 transition">Contact</a></li>

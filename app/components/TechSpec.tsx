@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
+import Link from "next/dist/client/link";
 
 // Lazy load the 3D model to prevent page freeze
 const Rocket3D = dynamic(() => import("./Rocket3D"), { 
@@ -11,12 +12,13 @@ const Rocket3D = dynamic(() => import("./Rocket3D"), {
 
 export default function TechSpec() {
   const specs = [
-    { label: "Height", value: "70 m / 229 ft" },
-    { label: "Diameter", value: "3.7 m / 12 ft" },
+    { label: "Height", value: "24.0 m / 78.7 ft" },
+    { label: "Diameter", value: "2.2 m / 7.2 ft" },
     { label: "Stages", value: "2 (Fully Reusable)" },
-    { label: "Payload to LEO", value: "20,400 kg" },
-    { label: "Thrust (Sea Level)", value: "7,607 kN" },
-    { label: "Propellant", value: "Liquid Oxygen / RP-1" }
+    { label: "Payload to LEO", value: "450 kg / 992 lb" },
+    { label: "Payload to SSO", value: "350 kg / 772 lb" },
+    { label: "Thrust (Sea Level)", value: "1410 kN" },
+    { label: "Propellant", value: "Methalox" }
   ];
 
   return (
@@ -74,8 +76,8 @@ export default function TechSpec() {
             </div>
 
             <div className="mt-10 flex justify-center md:justify-start">
-                <button className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition w-full md:w-auto">
-                    View User Guide
+                <button className="px-8 py-3 bg-cyan-500 text-black font-bold rounded-full hover:bg-cyan-400 transition w-full md:w-auto">
+                  <li><Link href="/vehicles/orbiton" className="hover:text-cyan-900 transition">Learn More</Link></li>
                 </button>
             </div>
           </motion.div>

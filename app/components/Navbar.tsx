@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import MobileMenu from "./MobileMenu"; // Import the new component
+import MobileMenu from "./MobileMenu";
 
 export default function Navbar() {
   const [hidden, setHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [menuOpen, setMenuOpen] = useState(false); // State for mobile menu
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,7 +42,7 @@ export default function Navbar() {
           {/* DESKTOP NAV (Hidden on Mobile) */}
           <nav className="hidden md:flex gap-6 text-sm text-white/70">
             <Link href="/#mission" className="hover:text-cyan-400 transition">Mission</Link>
-            <Link href="/#tech" className="hover:text-cyan-400 transition">Technology</Link>
+            <Link href="/technology/engine" className="hover:text-cyan-400 transition">Technology</Link>
             <Link href="/investors" className="hover:text-cyan-400 transition">Investors</Link>
             <Link href="/careers" className="hover:text-cyan-400 transition">Careers</Link>
             <Link href="/about" className="hover:text-cyan-400">About</Link>

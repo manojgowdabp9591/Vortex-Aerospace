@@ -6,7 +6,7 @@ import { LucideIcon } from "lucide-react";
 interface HolographicCardProps {
   title: string;
   text: string;
-  icon: LucideIcon; // We will pass real icons
+  icon: LucideIcon;
 }
 
 export default function HolographicCard({ title, text, icon: Icon }: HolographicCardProps) {

@@ -39,8 +39,7 @@ export default function Home() {
         </p>
       </section>
 
-      {/* === FUTURISTIC TECHNOLOGY SECTION === */}
-      <section id="tech" className="py-32 relative px-6">
+      <section id="tech" className="py-0 relative px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
@@ -83,8 +82,8 @@ export default function Home() {
       <section id="roadmap" className="py-32 px-6 max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold mb-10">Roadmap</h2>
         <Roadmap year="2028" text="Prototype Engine Testing" />
-        <Roadmap year="2030" text="Suborbital Demonstration Vehicle" />
-        <Roadmap year="2032" text="Commercial Orbital Launch Capability" />
+        <Roadmap year="2029" text="Suborbital Demonstration Vehicle" />
+        <Roadmap year="2030" text="Commercial Orbital Launch Capability" />
       </section>
 
     </div>

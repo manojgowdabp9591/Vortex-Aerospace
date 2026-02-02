@@ -5,7 +5,7 @@ import Galaxy from "./components/Galaxy";
 import ParallaxGalaxy from "./components/ParallaxGalaxy";
 import Navbar from "./components/Navbar";
 import Preloader from "./components/Preloader";
-import Footer from "./components/Footer"; // Footer is global
+import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
