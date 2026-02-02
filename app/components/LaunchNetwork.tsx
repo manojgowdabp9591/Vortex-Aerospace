@@ -11,7 +11,7 @@ const GlobeTpl = dynamic(() => import('react-globe.gl'), { ssr: false });
 export default function LaunchNetwork() {
   return (
     // SECTION: Removed 'container' to allow full-width expansion
-    <section className="relative w-full bg-traparent/80 overflow-hidden flex items-center min-h-[800px]">
+    <section className="relative w-full bg-transparent/80 overflow-hidden flex items-center min-h-[800px]">
       
       <div className="grid lg:grid-cols-2 w-full h-full items-center">
         
@@ -100,15 +100,6 @@ function InteractiveGlobe() {
       { lat: 13.7, lng: 80.2, alt: 0.22, name: "SpaceGen 5", type: "COMM" },
     ];
     setSatellites(initialSatellites);
-
-    setTimeout(() => {
-      if (globeEl.current) {
-        globeEl.current.controls().autoRotate = true;
-        globeEl.current.controls().autoRotateSpeed = 0.5;
-        // Adjusted camera to see full globe in the large container
-        globeEl.current.pointOfView({ lat: 20, lng: 0, altitude: 2.0 });
-      }
-    }, 1000);
   }, []);
 
   // 3. ANIMATION LOOP
@@ -130,6 +121,17 @@ function InteractiveGlobe() {
     <div ref={containerRef} className="w-full h-full cursor-move">
       <GlobeTpl
         ref={globeEl}
+
+        // --- THIS FIXES THE ROTATION ---
+        onGlobeReady={() => {
+            if (globeEl.current) {
+                const controls = globeEl.current.controls();
+                controls.autoRotate = true;
+                controls.autoRotateSpeed = 0.5;
+                globeEl.current.pointOfView({ lat: 20, lng: 0, altitude: 2.0 });
+            }
+        }}
+
         width={dimensions.width}
         height={dimensions.height}
         globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
