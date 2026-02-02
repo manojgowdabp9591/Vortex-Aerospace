@@ -1,20 +1,21 @@
 import { NextResponse } from "next/server";
-import { connectDB } from "../../lib/mongodb"; // Import your new connection
-import Application from "../../models/Application"; // Import your new model
+import { connectDB } from "../../lib/mongodb";
+import Application from "../../models/Application";
 
 export async function POST(req: Request) {
   try {
-    const data = await req.formData();
+    // FIX 1: Read JSON, not formData (because Apply.tsx sends JSON)
+    const data = await req.json();
 
-    // 1. Connect to MongoDB
     await connectDB();
 
-    // 2. Save to Database
+    // FIX 2: Include the 'message' field
     await Application.create({
-      name: data.get("name"),
-      email: data.get("email"),
-      role: data.get("role"),
-      time: new Date().toISOString(),
+      name: data.name,
+      email: data.email,
+      role: data.role,
+      message: data.message, // Saving the mission statement
+      // Mongoose handles 'createdAt' automatically if timestamps: true is in schema
     });
 
     console.log("Application saved to MongoDB");
