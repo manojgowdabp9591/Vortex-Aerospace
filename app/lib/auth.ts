@@ -1,25 +1,15 @@
-// app/lib/auth.ts
-
 import jwt from "jsonwebtoken";
 
-const JWT_SECRET = process.env.JWT_SECRET!;
+const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key-change-this";
 
-if (!JWT_SECRET) {
-  throw new Error("JWT_SECRET not defined");
+export function signAdminToken(payload: object) {
+  return jwt.sign(payload, JWT_SECRET, { expiresIn: "1d" });
 }
 
-export type AdminPayload = {
-  email: string;
-};
-
-// Create JWT
-export function signAdminToken(payload: AdminPayload) {
-  return jwt.sign(payload, JWT_SECRET, {
-    expiresIn: "1d",
-  });
-}
-
-// Verify JWT (used ONLY in Node APIs, not middleware)
-export function verifyAdminToken(token: string): AdminPayload {
-  return jwt.verify(token, JWT_SECRET) as AdminPayload;
+export function verifyAdminToken(token: string) {
+  try {
+    return jwt.verify(token, JWT_SECRET);
+  } catch (error) {
+    throw new Error("Invalid token");
+  }
 }
