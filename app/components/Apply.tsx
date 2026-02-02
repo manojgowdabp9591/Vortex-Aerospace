@@ -19,11 +19,10 @@ export default function Apply({ role }: { role: string }) {
       name: formData.get("name"),
       email: formData.get("email"),
       message: formData.get("message"),
-      role: role, // Add the role automatically
+      role: role,
     };
 
     try {
-      // 3. Send as JSON
       const res = await fetch("/api/apply", {
         method: "POST",
         headers: {
@@ -34,10 +33,12 @@ export default function Apply({ role }: { role: string }) {
 
       if (res.ok) {
         setSubmitted(true);
-      } else {
+      } 
+      else {
         alert("Transmission failed. Please try again.");
       }
-    } catch (err) {
+    } 
+    catch (err) {
       alert("Error connecting to server.");
     }
     
