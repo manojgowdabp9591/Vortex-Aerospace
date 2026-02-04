@@ -1,8 +1,16 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Partners() {
+  // 1. Updated data structure to include URLs
   const partners = [
-    "ISRO", "NASA", "ESA", "SPACEX", "BOEING", "AIRBUS"
+    { name: "ISRO", url: "https://www.isro.gov.in" },
+    { name: "NASA", url: "https://www.nasa.gov" },
+    { name: "ESA", url: "https://www.esa.int" },
+    { name: "SPACEX", url: "https://www.spacex.com" },
+    { name: "BOEING", url: "https://www.boeing.com" },
+    { name: "AIRBUS", url: "https://www.airbus.com" }
   ];
 
   return (
@@ -12,16 +20,17 @@ export default function Partners() {
           Trusted by Industry Leaders
         </p>
         
-        {/* REMOVED 'opacity-50' so they are actually visible now */}
         <div className="flex flex-wrap justify-center gap-12 md:gap-24 grayscale">
           {partners.map((partner) => (
-            <span 
-              key={partner} 
-              // CHANGED: text-white/40 -> text-white/80 (Much brighter)
-              className="text-2xl md:text-3xl font-black text-white/80 hover:text-cyan-400 hover:scale-105 transition-all duration-300 cursor-default select-none"
+            <Link 
+              key={partner.name} 
+              href={partner.url}
+              target="_blank" // Opens in a new tab
+              rel="noopener noreferrer" // Security best practice for external links
+              className="text-2xl md:text-3xl font-black text-white/80 hover:text-cyan-400 hover:scale-105 transition-all duration-300 cursor-pointer select-none no-underline"
             >
-              {partner}
-            </span>
+              {partner.name}
+            </Link>
           ))}
         </div>
       </div>
