@@ -2,13 +2,13 @@
 
 import PageLayout from "../components/PageLayout";
 import { motion } from "framer-motion";
-import { Rocket, Cpu, Globe, Target, User, Zap, Flag } from "lucide-react";
+import { Rocket, Cpu, Globe, Target, User, Zap, Flag, Flame, Wind } from "lucide-react";
 
 export default function AboutPage() {
   return (
     <PageLayout 
       title="Mission Log: Origin" 
-      subtitle="Democratizing access to space for the next generation."
+      subtitle="Redefining propulsion. Mastering detonation. Advancing humanity."
     >
       <div className="space-y-32 mt-10">
 
@@ -34,46 +34,44 @@ export default function AboutPage() {
               {/* HUD Overlay */}
               <div className="absolute bottom-4 left-4 z-20">
                  <p className="text-xl font-bold text-white tracking-widest uppercase">Manoj Gowda</p>
-                 <p className="text-xs text-cyan-400 font-mono">CMD // ID: SG-001</p>
+                 <p className="text-xs text-cyan-400 font-mono">CMD // ID: VTX-001</p>
               </div>
 
               <img
                 src="/founder.jpeg"
                 alt="Manoj Gowda B P - Founder"
-                className="w-full h-fit object-cover opacity-90 group-hover:scale-105 transition duration-700"
+                className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition duration-700"
               />
             </div>
           </motion.div>
 
           {/* TEXT CONTENT */}
           <motion.div
-             initial={{ opacity: 0, x: 50 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             transition={{ duration: 1 }}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
           >
             <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 bg-cyan-500/10 rounded-lg text-cyan-400 border border-cyan-500/20">
                     <Flag size={24} />
                 </div>
-                <h2 className="text-4xl font-extrabold text-white">Why We Look Up.</h2>
+                <h2 className="text-4xl font-extrabold text-white">The Propulsion Bottleneck.</h2>
             </div>
 
             <div className="space-y-6 text-lg text-white/70 leading-relaxed font-light">
               <p>
-                For decades, space has been the province of superpowers. But I founded 
-                <span className="text-cyan-400 font-bold"> Space Gen</span> with a 
-                single directive: <span className="text-white">space belongs to everyone.</span>
+                For sixty years, rocket engines have been stuck in the era of deflagration—burning fuel at constant pressure. 
+                I founded <span className="text-cyan-400 font-bold">Vortex Aerospace</span> to break this stagnation.
               </p>
               <p>
-                In no other mode of transportation—cars, planes, trains—do we discard the 
-                vehicle after a single journey. Why should space be different? We are solving 
-                the hardest engineering problems to make a ticket to orbit as common as a plane ticket.
+                We are not just building another launch vehicle; we are pioneering <strong>Rotary Detonation Engines (RDE)</strong>. 
+                By harnessing the power of supersonic shockwaves, we extract more energy from every gram of fuel. 
+                This isn't just an improvement; it's a phase shift in physics.
               </p>
               
               <div className="bg-white/5 border-l-4 border-cyan-400 p-6 my-8 rounded-r-xl backdrop-blur-sm">
                  <p className="italic text-white/90 font-medium">
-                  "We aren’t just building machines; we are building a highway to the 
-                  stars. The road is hard, but the view is worth it."
+                  "Conventional engines burn. Ours detonate. We are building the machinery to make spaceflight not just possible, but efficient."
                  </p>
               </div>
               
@@ -93,34 +91,32 @@ export default function AboutPage() {
           
           {/* TEXT CONTENT */}
           <motion.div
-             initial={{ opacity: 0, x: -50 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             transition={{ duration: 1 }}
-             className="order-2 md:order-1"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              className="order-2 md:order-1"
           >
             <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 bg-purple-500/10 rounded-lg text-purple-400 border border-purple-500/20">
                     <Cpu size={24} />
                 </div>
-                <h2 className="text-4xl font-extrabold text-white">How We Get There.</h2>
+                <h2 className="text-4xl font-extrabold text-white">Taming the Chaos.</h2>
             </div>
 
             <div className="space-y-6 text-lg text-white/70 leading-relaxed font-light">
               <p>
-                Vision is the spark, but engineering is the fuel. My focus is turning the 
-                impossible physics of reusability into a repeatable, reliable reality.
+                A detonation wave travels at 2,000 meters per second. Controlling that is like trying to bottle a lightning storm. 
+                My focus is on the architecture that makes this possible: the <strong>VORTEX-1</strong> engine.
               </p>
               <p>
-                We are building engines that thrive in the inferno of reentry. By combining 
-                advanced avionics with lightweight alloy structures, we are shaving off the 
-                kilograms that matter most. The next Silicon Valley isn't on the ground—it's 
-                in Low Earth Orbit.
+                We are combining advanced computational fluid dynamics with high-temperature alloy printing to build 
+                combustion chambers that don't just survive the shockwaves—they thrive on them. 
+                The result is a lighter, more powerful engine with fewer moving parts.
               </p>
 
               <div className="bg-white/5 border-l-4 border-purple-500 p-6 my-8 rounded-r-xl backdrop-blur-sm">
                  <p className="italic text-white/90 font-medium">
-                  "Gravity is a formidable opponent, but it is not unbeatable. With the 
-                  right math and the right team, we make spaceflight routine."
+                  "Complexity is the enemy of reliability. By using detonation physics, we eliminate heavy turbomachinery and let the shockwaves do the work."
                  </p>
               </div>
 
@@ -149,13 +145,13 @@ export default function AboutPage() {
               {/* HUD Overlay */}
               <div className="absolute bottom-4 left-4 z-20">
                  <p className="text-xl font-bold text-white tracking-widest uppercase">Sandeep S M</p>
-                 <p className="text-xs text-purple-400 font-mono">CTO // ID: SG-002</p>
+                 <p className="text-xs text-purple-400 font-mono">CTO // ID: VTX-002</p>
               </div>
 
               <img
                 src="/cofounder.jpeg"
                 alt="Sandeep S M - Co-Founder"
-                className="w-fit h-fit object-cover opacity-90 group-hover:scale-105 transition duration-700"
+                className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition duration-700"
               />
             </div>
           </motion.div>
@@ -167,19 +163,19 @@ export default function AboutPage() {
            ========================================= */}
         <div className="grid md:grid-cols-3 gap-6 pt-20 border-t border-white/10">
             <ValueCard 
-                title="Radical Reusability" 
+                title="Pressure Gain Combustion" 
+                icon={Flame}
+                desc="We don't just burn fuel; we detonate it. Harnessing pressure gain increases thermodynamic efficiency by 15%." 
+            />
+            <ValueCard 
+                title="Rapid Reusability" 
                 icon={Rocket}
-                desc="We don't build throwaway machines. Every stage, every engine, every fairing returns home." 
+                desc="Our Lifting Body architecture allows for aircraft-like operations. Land, refuel, and launch again within 24 hours." 
             />
             <ValueCard 
-                title="Frugal Innovation" 
-                icon={Zap}
-                desc="We leverage smart engineering to reduce costs by orders of magnitude, not just percentages." 
-            />
-            <ValueCard 
-                title="Global Access" 
+                title="Democratized Orbit" 
                 icon={Globe}
-                desc="Space is for all of humanity. We are building the infrastructure to open the frontier to everyone." 
+                desc="By slashing the cost of propulsion, we are opening the door for students, startups, and scientists to access space." 
             />
         </div>
 

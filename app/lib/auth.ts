@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key-change-this";
+const JWT_SECRET = process.env.JWT_SECRET || "RGVCy4P6XB3W346bNuoqDhZgdmmpTTQRyZDc3tLlzucd";
 
 export function signAdminToken(payload: object) {
   return jwt.sign(payload, JWT_SECRET, { expiresIn: "1d" });

@@ -16,7 +16,7 @@ export default function OrbitonPage() {
   return (
     <PageLayout
       title="Vehicle: ORBITON-1"
-      subtitle="A rapid-response, reusable micro-launcher for the small satellite market."
+      subtitle="The flagship reusable micro-launcher from Vortex Aerospace."
     >
       <div className="grid lg:grid-cols-12 gap-10 mt-10 items-start">
         
@@ -38,7 +38,7 @@ export default function OrbitonPage() {
                   </pattern>
                 </defs>
 
-                {/* --- GROUP 1: STAGE 1 (INCREASED SIZE) --- */}
+                {/* --- GROUP 1: STAGE 1 (HEAVY CONFIGURATION) --- */}
                 <motion.g 
                   onClick={() => setActiveStage("stage1")}
                   className="cursor-pointer transition-all duration-300"
@@ -51,27 +51,23 @@ export default function OrbitonPage() {
                   }}
                   fill="transparent"
                 >
-                    {/* Main Body - WIDENED (Now 200 to 300) */}
+                    {/* Main Body - WIDENED */}
                     <path d="M200 260 L200 700 L300 700 L300 260" fill="url(#grid-pattern)" />
                     <path d="M250 260 L250 700" strokeDasharray="10 5" opacity="0.5"/>
 
                     {/* Left Wing - MASSIVE INCREASE */}
-                    {/* Starts higher (450) and goes wider (110) */}
                     <path d="M200 450 L110 600 L110 700 L200 700" fill="url(#grid-pattern)" />
-                    {/* Wing Tip Extension */}
                     <path d="M110 600 L20 720 L110 720 C110 720 130 740 160 740" /> 
                     
                     {/* Right Wing - MASSIVE INCREASE */}
-                    {/* Starts higher (450) and goes wider (390) */}
                     <path d="M300 450 L390 600 L390 700 L300 700" fill="url(#grid-pattern)" />
-                    {/* Wing Tip Extension */}
                     <path d="M390 600 L480 720 L390 720 C390 720 370 740 340 740" />
 
-                    {/* Legs adjusted for wider body */}
+                    {/* Legs */}
                     <path d="M200 550 C200 550 180 650 180 720" />
                     <path d="M300 550 C300 550 320 650 320 720" />
 
-                    {/* Engines - Spread out for wider body */}
+                    {/* Engines */}
                     <path d="M230 700 L240 740 L260 740 L270 700" /> {/* Center */}
                     <path d="M180 700 L185 730 L210 730 L215 700" /> {/* Left Edge */}
                     <path d="M285 700 L290 730 L315 730 L320 700" /> {/* Right Edge */}
@@ -79,7 +75,7 @@ export default function OrbitonPage() {
                     <line x1="200" y1="260" x2="300" y2="260" strokeWidth="2" />
                 </motion.g>
 
-                {/* --- GROUP 2: STAGE 2 (WIDENED TO MATCH) --- */}
+                {/* --- GROUP 2: STAGE 2 (UPPER STAGE) --- */}
                 <motion.g 
                   onClick={() => setActiveStage("stage2")}
                   className="cursor-pointer"
@@ -98,7 +94,7 @@ export default function OrbitonPage() {
                     <line x1="200" y1="160" x2="300" y2="160" strokeWidth="2"/>
                 </motion.g>
 
-                {/* --- GROUP 3: FAIRING (WIDENED TO MATCH) --- */}
+                {/* --- GROUP 3: FAIRING (NOSE CONE) --- */}
                 <motion.g 
                   onClick={() => setActiveStage("fairing")}
                   className="cursor-pointer"
@@ -111,7 +107,6 @@ export default function OrbitonPage() {
                   }}
                   fill="transparent"
                 >
-                   {/* Widened base from 210/290 to 200/300 */}
                    <path d="M200 160 C200 100 250 40 250 40 C250 40 300 100 300 160 Z" />
                    <path d="M220 140 C230 130 270 130 280 140 L280 160 L220 160 Z" strokeDasharray="2 2" opacity="0.5"/>
                    <line x1="250" y1="40" x2="250" y2="160" opacity="0.3" />
@@ -132,9 +127,9 @@ export default function OrbitonPage() {
                ORBITON-1
             </h2>
             <p className="text-white/70 text-lg leading-relaxed font-light">
-              The Orbiton-1 is a SmallSat Launch Vehicle (SSLV) designed to solve the "last mile" problem of orbit delivery. 
-              By utilizing a <strong>Lifting Body</strong> first stage and <strong>Methalox</strong> propulsion, 
-              we achieve reusability without the mass penalty of heavy landing propellant.
+              Developed by <span className="text-white font-bold">Vortex Aerospace</span>, the Orbiton-1 is a SmallSat Launch Vehicle (SSLV) engineered for the next era of spaceflight. 
+              By utilizing our proprietary <strong>Lifting Body</strong> architecture and <strong>VORTEX-1</strong> detonation engines, 
+              we achieve rapid reusability without the mass penalty of traditional landing burns.
             </p>
           </div>
 
@@ -152,7 +147,7 @@ export default function OrbitonPage() {
                     desc="Expanded wing surface area provides superior glide ratio during reentry. The widened core accommodates increased propellant load for higher delta-V."
                     stats={[
                         { label: "Engines", value: "9x VORTEX-1" },
-                        { label: "Thrust", value: "2400 kN" }, // Increased thrust
+                        { label: "Thrust", value: "2400 kN" },
                         { label: "Wing Span", value: "12 m" }, 
                     ]}
                  />
@@ -203,6 +198,8 @@ export default function OrbitonPage() {
     </PageLayout>
   );
 }
+
+// --- SUB-COMPONENTS ---
 
 function StageDetails({ title, desc, stats }: any) {
     return (

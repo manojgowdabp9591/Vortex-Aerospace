@@ -1,6 +1,6 @@
 export function jobMetadata(title: string) {
   return {
-    title: `${title} | Space Gen Careers`,
-    description: `Apply for the ${title} role at Space Gen.`,
+    title: `${title} | Vortex Aerospace Careers`,
+    description: `Apply for the ${title} role at Vortex Aerospace. Help us build the future of reusable propulsion.`,
   };
 }

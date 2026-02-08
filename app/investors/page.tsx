@@ -2,7 +2,7 @@
 
 import PageLayout from "../components/PageLayout";
 import { motion } from "framer-motion";
-import { Activity, TrendingUp, PieChart, Globe, Download } from "lucide-react";
+import { Activity, TrendingUp, PieChart, Globe, Download, ArrowUpRight } from "lucide-react";
 
 export default function InvestorsPage() {
   return (
@@ -10,7 +10,7 @@ export default function InvestorsPage() {
       title="Investor Relations" 
       subtitle="Fueling the infrastructure for the next century of human history."
     >
-      {/* 1. TOP STATS GRID (Upgraded with Icons & Glow) */}
+      {/* 1. TOP STATS GRID */}
       <div className="grid md:grid-cols-4 gap-6 mb-16">
         <StatCard label="Current Round" value="Series B" icon={Activity} />
         <StatCard label="Valuation" value="$1.5B" icon={TrendingUp} />
@@ -20,7 +20,7 @@ export default function InvestorsPage() {
 
       <div className="grid md:grid-cols-3 gap-10">
         
-        {/* 2. LEFT COLUMN: REPORTS (Upgraded UI) */}
+        {/* 2. LEFT COLUMN: REPORTS */}
         <div className="md:col-span-2 space-y-6">
           <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-2">
             <span className="w-1 h-8 bg-cyan-500 rounded-full mr-2"></span>
@@ -28,30 +28,30 @@ export default function InvestorsPage() {
           </h2>
           
           <ReportCard 
-            title="Mission Success Memo: Gen-1 Launch" 
+            title="Mission Success Memo: VORTEX-1 Test" 
             date="Today"
-            desc="Preliminary telemetry confirms nominal orbit insertion. Payload deployed successfully."
+            desc="Preliminary telemetry confirms nominal detonation stability. Full thrust duration achieved at Test Stand A."
           />
           <ReportCard 
             title="Q4 2025 Quarterly Report" 
             date="Jan 15, 2026"
-            desc="Detailed breakdown of Gen-1 engine testing results and Q1 2026 burn rate projections."
+            desc="Detailed breakdown of Orbiton-1 manufacturing costs and Q1 2026 burn rate projections."
           />
           <ReportCard 
             title="Series B Funding Memo" 
             date="Oct 10, 2025"
-            desc="Overview of capital allocation for the new 'Star-Forge' manufacturing facility."
+            desc="Overview of capital allocation for the new 'Star-Forge' composite manufacturing facility."
           />
         </div>
 
-        {/* 3. RIGHT COLUMN: STOCK MARKET CHART (Kept exactly as you designed) */}
+        {/* 3. RIGHT COLUMN: STOCK MARKET CHART */}
         <div className="bg-black border border-white/20 rounded-xl p-6 h-fit shadow-2xl relative overflow-hidden group">
           
           {/* Header: Stock Ticker Style */}
           <div className="flex justify-between items-end mb-6 border-b border-white/10 pb-4">
             <div>
-              <h3 className="text-2xl font-black text-white tracking-widest group-hover:text-green-400 transition duration-500">SPGN</h3>
-              <p className="text-xs text-white/40">SPACE GEN INC.</p>
+              <h3 className="text-3xl font-black text-white tracking-widest group-hover:text-green-400 transition duration-500">VTX</h3>
+              <p className="text-xs text-white/40 uppercase tracking-wider">VORTEX AEROSPACE INC.</p>
             </div>
             <div className="text-right">
               {/* Animated Price Spike */}
@@ -145,31 +145,19 @@ export default function InvestorsPage() {
                 {[40, 30, 60, 80, 50, 20, 30, 90, 100, 70, 60, 80, 50, 40].map((h, i) => (
                     <div key={i} className={`w-full ${i === 3 ? 'bg-red-500' : 'bg-green-500'}`} style={{ height: `${h}%` }} />
                 ))}
-                <motion.div 
-                    className="w-full bg-green-400" 
-                    initial={{ height: "0%" }}
-                    whileInView={{ height: "100%" }}
-                    transition={{ delay: 1.5 }}
-                />
             </div>
-
-            {/* Axis Labels */}
-            <div className="absolute top-10 right-2 text-[10px] text-green-400 bg-green-900/50 px-1 rounded">$54.20</div>
-            <div className="absolute bottom-2 left-10 text-[10px] text-red-400 bg-red-900/50 px-1 rounded">2018 Low</div>
-
           </div>
           
           <div className="flex justify-between text-xs text-white/30 mt-2 font-mono">
-            <span>2016</span>
-            <span>2018</span>
-            <span>2020</span>
             <span>2022</span>
+            <span>2023</span>
             <span>2024</span>
+            <span>2025</span>
             <span className="text-green-400 font-bold">NOW</span>
           </div>
 
-          <button className="mt-6 w-full py-3 bg-white text-black font-bold text-sm tracking-widest hover:bg-cyan-400 hover:scale-105 transition-all duration-300 uppercase rounded">
-            Trade on NYSE
+          <button className="mt-6 w-full py-3 bg-white text-black font-bold text-sm tracking-widest hover:bg-cyan-400 hover:scale-105 transition-all duration-300 uppercase rounded flex items-center justify-center gap-2">
+            View on NYSE <ArrowUpRight size={16} />
           </button>
         </div>
 
@@ -178,7 +166,7 @@ export default function InvestorsPage() {
   );
 }
 
-// --- SUB-COMPONENTS (Professionally Upgraded) ---
+// --- SUB-COMPONENTS ---
 
 function StatCard({ label, value, icon: Icon }: any) {
   return (

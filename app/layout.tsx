@@ -18,20 +18,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Space Gen | Advancing Humanity",
-  description: "Space Gen is an aerospace manufacturer and space transportation services company building the next generation of reusable rockets.",
-  keywords: ["Space", "Rocket", "Aerospace", "India", "SpaceX", "Mars", "Tech", "Startup"],
+  title: "Vortex Aerospace | Advanced Propulsion Systems",
+  description: "Vortex Aerospace is an aerospace manufacturer building the next generation of reusable rockets powered by Rotary Detonation Engines (RDE).",
+  keywords: ["Vortex", "Aerospace", "RDE", "Rocket", "Space", "India", "Tech", "Startup", "Propulsion"],
   openGraph: {
-    title: "Space Gen | Advancing Humanity",
-    description: "Building the infrastructure for the next century of human history.",
-    url: "https://space-gen-india.vercel.app",
-    siteName: "Space Gen",
+    title: "Vortex Aerospace | Advancing Humanity",
+    description: "Building the infrastructure for the next century of human history with detonation-based propulsion.",
+    url: "https://vortex-aerospace.vercel.app", // Update this URL when you deploy
+    siteName: "Vortex Aerospace",
     images: [
       {
         url: "/social-preview.png",
         width: 1200,
         height: 630,
-        alt: "Space Gen Launch Vehicle",
+        alt: "Vortex Aerospace Launch Vehicle",
       },
     ],
     locale: "en_US",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Space Gen",
+    title: "Vortex Aerospace",
     description: "Advancing Humanity through reusable spaceflight.",
     images: ["/social-preview.jpg"],
   },

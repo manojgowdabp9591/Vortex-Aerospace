@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import PageLayout from "../components/PageLayout";
-import { ArrowRight, Rocket, Cpu, Hammer, Radio, Zap, Shield, MousePointer2 } from "lucide-react";
+import { ArrowRight, Rocket, Cpu, Radio, Zap, Shield, Users, Globe } from "lucide-react";
 
 export default function CareersPage() {
   return (
     <PageLayout
-      title="Build the Future."
+      title="Join the Vortex."
       subtitle="We don’t do easy. We do the impossible. If you want to see your work fly to space, you’re in the right place."
     >
       {/* 1. HERO / INTRO STATS (Futuristic HUD Style) */}
@@ -102,12 +102,24 @@ export default function CareersPage() {
       <div className="mt-32 border-t border-white/10 pt-20">
         <h3 className="text-3xl font-bold mb-10 text-center flex items-center justify-center gap-3">
             <Zap className="text-cyan-400" fill="currentColor" />
-            Why Space Gen?
+            Why Vortex?
         </h3>
         <div className="grid md:grid-cols-3 gap-8">
-            <Perk title="Equity Package" desc="Every employee is an owner. We offer competitive ESOPs for early crew members." icon={Rocket} />
-            <Perk title="Health & Wellness" desc="Comprehensive health insurance covering you and your immediate family." icon={Shield} />
-            <Perk title="Flexible Leave" desc="Work hard, rest hard. We focus on results delivered, not hours clocked." icon={MousePointer2} />
+            <Perk 
+                title="Equity Package" 
+                desc="Every employee is an owner. We offer competitive ESOPs for early crew members building the future." 
+                icon={Users} 
+            />
+            <Perk 
+                title="Health & Wellness" 
+                desc="Comprehensive health insurance covering you and your immediate family. Mental health support included." 
+                icon={Shield} 
+            />
+            <Perk 
+                title="Flexible Leave" 
+                desc="Work hard, rest hard. We focus on results delivered, not hours clocked. Unlimited PTO policy." 
+                icon={Globe} 
+            />
         </div>
       </div>
 
@@ -165,7 +177,7 @@ function Job({ title, href, location, type }: { title: string; href: string; loc
 function Stat({ label, value }: { label: string, value: string }) {
     return (
         <div className="text-center p-4 rounded-lg hover:bg-white/5 transition duration-300">
-            <p className="text-3xl font-bold font-mono text-white mb-1">{value}</p>
+            <p className="text-3xl font-bold font-mono text-white mb-1 group-hover:text-cyan-400 transition">{value}</p>
             <p className="text-[10px] text-white/40 uppercase tracking-[0.2em] font-bold">{label}</p>
         </div>
     )
