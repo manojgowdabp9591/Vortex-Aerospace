@@ -3,53 +3,66 @@
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { ChevronRight, Maximize2 } from "lucide-react";
 
-// Lazy load the 3D model to prevent page freeze
+// Lazy load 3D model
 const Rocket3D = dynamic(() => import("./Rocket3D"), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-full flex items-center justify-center text-cyan-400 font-mono text-xs animate-pulse">
-      Initializing 3D Render…
+    <div className="w-full h-full flex flex-col items-center justify-center gap-4">
+        <div className="w-8 h-8 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin" />
+        <span className="text-cyan-500 font-mono text-[10px] tracking-widest uppercase">
+            Loading Geometry...
+        </span>
     </div>
   ),
 });
 
 export default function TechSpec() {
   const specs = [
-    { label: "Overall Height", value: "24.0 m / 78.7 ft" },
-    { label: "Core Diameter", value: "2.8 m / 9.2 ft" },
-    { label: "Stages", value: "Two-stage, reusable" },
-    { label: "Payload to LEO", value: "Up to 850 kg / 1,873 lb" },
-    { label: "Payload to SSO", value: "Up to 600 kg / 1,322 lb" },
-    { label: "Sea-Level Thrust", value: "≈ 2,400 kN (clustered)" },
-    { label: "Propellant", value: "LCH4 / LOX (Methalox)" },
+    { label: "Overall Height", value: "24.0 m", sub: "78.7 ft" },
+    { label: "Core Diameter", value: "2.8 m", sub: "9.2 ft" },
+    { label: "Stages", value: "Two-stage", sub: "Fully Reusable" },
+    { label: "Payload to LEO", value: "850 kg", sub: "1,873 lb" },
+    { label: "Payload to SSO", value: "600 kg", sub: "1,322 lb" },
+    { label: "Thrust (SL)", value: "2,400 kN", sub: "9x VORTEX-1" },
+    { label: "Propellant", value: "LCH4 / LOX", sub: "Deep Cryo" },
   ];
 
   return (
     <section className="min-h-screen flex items-center justify-center py-24 relative z-10 overflow-hidden bg-black/20">
       <div className="max-w-7xl mx-auto px-6 w-full">
-        <div className="grid md:grid-cols-2 gap-14 items-center">
+        
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          
           {/* COLUMN 1: 3D VEHICLE VIEW */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="relative h-[520px] w-full flex items-center justify-center"
+            className="relative h-[600px] w-full flex items-center justify-center"
           >
-            {/* Backglow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] bg-cyan-500/10 blur-[110px] rounded-full pointer-events-none" />
+            {/* Ambient Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none" />
 
-            {/* 3D Model */}
-            <div className="w-full h-full cursor-grab active:cursor-grabbing relative z-10">
-              <Rocket3D />
-
-              {/* Interaction Hint */}
-              <div className="absolute bottom-4 left-0 right-0 text-center pointer-events-none">
-                <p className="text-[10px] text-cyan-400/60 uppercase tracking-widest font-mono bg-black/40 inline-block px-3 py-1 rounded-full border border-cyan-500/20 backdrop-blur-sm">
-                  Drag to inspect vehicle geometry
-                </p>
-              </div>
+            {/* 3D Model Container */}
+            <div className="w-full h-full relative z-10 group">
+                <Rocket3D />
+                
+                {/* Interaction Overlay */}
+                <div className="absolute top-4 right-4 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <Maximize2 className="text-white/20" size={24} />
+                </div>
+                
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity">
+                    <div className="flex items-center gap-2 px-4 py-2 bg-black/60 border border-white/10 rounded-full backdrop-blur-md">
+                        <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse" />
+                        <span className="text-[10px] text-white/80 font-mono uppercase tracking-widest">
+                            Interactive Model
+                        </span>
+                    </div>
+                </div>
             </div>
           </motion.div>
 
@@ -60,43 +73,59 @@ export default function TechSpec() {
             transition={{ duration: 0.9, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-center md:text-left text-white tracking-tight">
-              Vehicle Overview
-            </h2>
+            <div className="mb-10">
+                <div className="flex items-center gap-2 mb-4">
+                    <span className="w-8 h-[1px] bg-cyan-500" />
+                    <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest">
+                        Core Architecture
+                    </span>
+                </div>
+                
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+                  Orbiton-1 <span className="text-white/20">Vehicle</span>
+                </h2>
 
-            <p className="text-white/65 text-base md:text-lg mb-10 text-center md:text-left leading-relaxed font-light max-w-xl">
-              <span className="text-white font-semibold">Orbiton-1</span> is a
-              reusable micro-launch vehicle developed by Vortex Aerospace.
-              The system combines a lifting-body architecture with methalox
-              propulsion to improve performance margins, structural efficiency,
-              and operational flexibility for small-payload orbital missions.
-            </p>
+                <p className="text-white/60 text-lg leading-relaxed font-light max-w-xl">
+                  A reusable micro-launch vehicle engineered for high-cadence access to space. 
+                  Combining a <span className="text-cyan-400 font-medium">lifting-body architecture</span> with 
+                  next-gen detonation propulsion to maximize payload fraction and minimize turnaround time.
+                </p>
+            </div>
 
-            {/* SPEC TABLE */}
-            <div className="border-t border-white/20">
+            {/* ENHANCED SPEC TABLE */}
+            <div className="bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden backdrop-blur-sm">
               {specs.map((spec, index) => (
                 <div
                   key={index}
-                  className="flex flex-col md:flex-row md:justify-between md:items-center py-4 border-b border-white/10 hover:bg-white/5 transition px-4 gap-1 text-center md:text-left group"
+                  className="flex items-center justify-between p-5 border-b border-white/5 hover:bg-white/[0.04] transition-colors group last:border-0"
                 >
-                  <span className="text-xs md:text-sm font-semibold uppercase text-white/55 tracking-widest group-hover:text-cyan-400 transition-colors">
+                  <span className="text-xs font-bold uppercase text-white/40 tracking-widest group-hover:text-white/70 transition-colors">
                     {spec.label}
                   </span>
-                  <span className="text-lg md:text-xl font-mono text-white font-bold group-hover:text-cyan-300 transition-colors">
-                    {spec.value}
-                  </span>
+                  <div className="text-right">
+                      <span className="block text-lg font-mono text-white font-bold group-hover:text-cyan-400 transition-colors drop-shadow-[0_0_10px_rgba(34,211,238,0.1)]">
+                        {spec.value}
+                      </span>
+                      <span className="block text-[10px] text-white/20 font-mono group-hover:text-white/40 transition-colors">
+                        {spec.sub}
+                      </span>
+                  </div>
                 </div>
               ))}
             </div>
 
             {/* CTA */}
-            <div className="mt-12 flex justify-center md:justify-start">
-              <Link href="/vehicles/orbiton" className="w-full md:w-auto">
-                <button className="w-full md:w-auto px-8 py-4 bg-black text-white font-semibold uppercase tracking-widest text-sm rounded hover:bg-cyan-400 hover:scale-[1.03] transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(34,211,238,0.6)]">
-                  View Technical Datasheet
-                </button>
+            <div className="mt-10">
+              <Link href="/vehicles/orbiton" className="group inline-flex items-center gap-4">
+                <div className="h-[50px] px-8 bg-white text-black font-bold uppercase tracking-widest text-xs rounded-full flex items-center gap-2 group-hover:bg-cyan-400 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.1)] group-hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]">
+                  View Full Datasheet
+                </div>
+                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-cyan-400 transition-colors">
+                    <ChevronRight className="text-white group-hover:text-cyan-400 transition-colors" size={20} />
+                </div>
               </Link>
             </div>
+
           </motion.div>
         </div>
       </div>

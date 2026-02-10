@@ -35,23 +35,26 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-extrabold mb-6 tracking-tight">
               Human Spaceflight
               <br />
-              <span className="text-cyan-500">Built on Orbital Systems</span>
+              <span className="text-cyan-500">
+                Enabled by Orbital-Class Systems
+              </span>
             </h2>
             <div className="w-16 h-1 bg-cyan-500 mb-8" />
           </div>
 
           <div>
             <p className="text-white/70 text-base md:text-lg leading-relaxed font-light mb-6">
-              <strong className="text-white">Vortex Aerospace</strong> is developing human-rated suborbital flight
-              capability using the same reusable rocket systems designed for
-              orbital satellite launch.
+              <strong className="text-white">Vortex Aerospace</strong> is developing
+              human-rated suborbital flight capability as a direct extension of
+              its reusable orbital launch systems. No parallel vehicles. No
+              separate architectures.
             </p>
 
             <p className="text-white/70 text-base md:text-lg leading-relaxed font-light">
-              Initial missions focus on suborbital space tourism and research,
-              progressing toward ultra-fast point-to-point Earth travel on
-              suborbital trajectories. This phased approach prioritizes safety,
-              regulatory alignment, and operational maturity.
+              Initial missions focus on controlled suborbital space tourism and
+              research flights, progressing toward ultra-fast point-to-point
+              Earth travel. Each phase advances only after safety, regulatory
+              readiness, and operational maturity are proven in flight.
             </p>
           </div>
         </div>
@@ -76,23 +79,23 @@ export default function Home() {
 
           <div>
             <h3 className="text-lg md:text-xl text-cyan-400 mb-6 font-semibold tracking-wide">
-              Building infrastructure for the next phase of space operations
+              Infrastructure for the next generation of space operations
             </h3>
 
             <p className="text-white/70 text-base md:text-lg leading-relaxed font-light mb-6">
               <strong className="text-white">Vortex Aerospace</strong> is an
-              engineering-led launch company focused on reducing the cost and
-              complexity of orbital access. Our reusable launch systems are
-              designed to support frequent, responsive satellite deployment to
-              low Earth orbit.
+              engineering-led launch company focused on lowering the cost,
+              complexity, and response time of orbital access. Our reusable
+              systems are designed to support frequent, reliable satellite
+              deployment to low Earth orbit.
             </p>
 
             <p className="text-white/70 text-base md:text-lg leading-relaxed font-light mb-8">
-              The same vehicle architecture also enables human suborbital
-              missions, forming the foundation for space tourism and ultra-fast
-              point-to-point Earth travel. These capabilities are developed as
-              extensions of our orbital launch systems, leveraging shared
-              propulsion, guidance, and reusability technologies.
+              The same vehicle architecture enables human suborbital missions,
+              forming the technical foundation for space tourism and future
+              ultra-fast point-to-point Earth travel. These capabilities are
+              developed deliberately as extensions of orbital-class systems,
+              leveraging shared propulsion, guidance, recovery, and reuse.
             </p>
 
             <Link
@@ -121,8 +124,8 @@ export default function Home() {
               <span className="text-cyan-500">System</span>
             </h2>
             <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto font-light">
-              Designed from the ground up for rapid recovery, inspection, and
-              reflight.
+              Designed from inception for rapid recovery, inspection, and
+              repeatable flight operations.
             </p>
           </div>
 
@@ -130,22 +133,22 @@ export default function Home() {
             <HolographicCard
               title="Precision Landing"
               icon={Crosshair}
-              text="Autonomous guidance and control systems designed for meter-level landing accuracy and rapid recovery."
+              text="Autonomous guidance and control systems engineered for meter-level landing accuracy and rapid vehicle recovery."
             />
             <HolographicCard
               title="Rotary Detonation Propulsion"
               icon={Zap}
-              text="Pressure-gain combustion architecture enabling higher efficiency, deep throttling, and multiple restarts."
+              text="Pressure-gain combustion architecture delivering higher efficiency, simplified engine design, and multiple restart capability."
             />
             <HolographicCard
               title="Lightweight Structures"
               icon={ShieldCheck}
-              text="Composite tankage and load-bearing structures optimized for mass efficiency and reuse cycles."
+              text="Advanced composite tankage and load-bearing structures optimized for mass efficiency across multiple reuse cycles."
             />
             <HolographicCard
               title="Rapid Turnaround"
               icon={RefreshCw}
-              text="Vehicle systems designed for aircraft-like servicing and launch readiness within 24 hours."
+              text="Vehicle systems designed for aircraft-like servicing and launch readiness within a 24-hour operational window."
             />
           </div>
         </div>
@@ -161,7 +164,8 @@ export default function Home() {
             Development Roadmap
           </h2>
           <p className="text-white/50">
-            Engineering milestones toward operational launch capability
+            A disciplined progression toward reusable, operational launch
+            capability
           </p>
         </div>
 
@@ -175,25 +179,25 @@ export default function Home() {
           <RoadmapItem
             year="2028"
             title="Suborbital VTVL Demonstration"
-            desc="Low-altitude flight testing to validate guidance, navigation, control, and landing systems."
+            desc="Vertical takeoff and landing flight tests validating guidance, navigation, control, and recovery systems."
             status="active"
           />
           <RoadmapItem
             year="2030"
             title="Orbiton-1 First Orbital Attempt"
-            desc="Initial orbital launch demonstration with payload delivery to low Earth orbit."
+            desc="Initial orbital launch demonstration delivering payloads to low Earth orbit."
             status="pending"
           />
           <RoadmapItem
             year="2032"
             title="Commercial Orbital Launch Operations"
-            desc="Routine satellite launch services with reusable vehicles and rapid turnaround."
+            desc="Routine satellite launch services enabled by reusable vehicles and rapid turnaround operations."
             status="pending"
           />
           <RoadmapItem
             year="2035"
-            title="Human Suborbital Flight & Point-to-Point Demonstrations"
-            desc="Human-rated suborbital missions enabling space tourism and ultra-fast Earth travel using shared launch systems."
+            title="Human Suborbital & Point-to-Point Demonstrations"
+            desc="Human-rated suborbital missions validating space tourism operations and ultra-fast Earth point-to-point trajectories."
             status="pending"
           />
         </div>
@@ -223,8 +227,7 @@ function RoadmapItem({
     glow = "shadow-[0_0_15px_#22d3ee]";
   } else if (status === "active") {
     dotColor = "bg-white";
-    glow =
-      "shadow-[0_0_15px_rgba(255,255,255,0.5)] animate-pulse";
+    glow = "shadow-[0_0_15px_rgba(255,255,255,0.5)] animate-pulse";
   }
 
   return (

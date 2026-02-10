@@ -3,123 +3,115 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { Menu } from "lucide-react";
 
 export default function Navbar() {
   const [hidden, setHidden] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  
+  const { scrollY } = useScroll();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    if (latest > previous && latest > 150) {
         setHidden(true);
-      } else {
+    } else {
         setHidden(false);
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+    }
+    setScrolled(latest > 50);
+  });
 
   return (
     <>
-      <header
-        className={`fixed top-0 w-full z-50 transition-transform duration-300
-          ${hidden ? "-translate-y-full" : "translate-y-0"}
-          bg-black/70 backdrop-blur-md border-b border-white/10`}
+      <motion.header
+        variants={{
+            visible: { y: 0 },
+            hidden: { y: "-100%" },
+        }}
+        animate={hidden ? "hidden" : "visible"}
+        transition={{ duration: 0.35, ease: "easeInOut" }}
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+            scrolled 
+            ? "bg-black/80 backdrop-blur-xl border-b border-white/10 shadow-lg" 
+            : "bg-transparent border-b border-transparent"
+        }`}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+          
           {/* LOGO */}
           <Link
             href="/"
             className="flex items-center gap-3 relative z-50 group"
           >
-            <img
-              src="/Vortex-Aerospace-logo.png"
-              alt="Vortex Aerospace Logo"
-              className="h-9 w-auto"
-            />
+            <motion.div 
+                whileHover={{ scale: 1.05, rotate: 5 }}
+                transition={{ duration: 0.3 }}
+                className="relative"
+            >
+                <div className="absolute inset-0 bg-cyan-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <img
+                src="/Vortex-Aerospace-logo.png"
+                alt="Vortex Aerospace Logo"
+                className="h-10 w-auto relative z-10"
+                />
+            </motion.div>
+            
             <div className="flex flex-col leading-none">
-              <span className="text-sm font-semibold tracking-wide text-white">
+              <span className="text-sm font-bold tracking-wide text-white group-hover:text-cyan-400 transition-colors">
                 Vortex Aerospace
               </span>
-              <span className="text-[10px] text-white/40 uppercase tracking-widest">
+              <span className="text-[9px] text-white/40 uppercase tracking-[0.2em] group-hover:text-white/60 transition-colors">
                 Orbital Systems
               </span>
             </div>
           </Link>
 
           {/* DESKTOP NAV */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-white/70">
-            <Link
-              href="/programs"
-              className="hover:text-cyan-400 transition-colors"
-            >
-              Programs
-            </Link>
-            <Link
-              href="/technology/engine"
-              className="hover:text-cyan-400 transition-colors"
-            >
-              Technology
-            </Link>
-            <Link
-              href="/investors"
-              className="hover:text-cyan-400 transition-colors"
-            >
-              Investors
-            </Link>
-            <Link
-              href="/careers"
-              className="hover:text-cyan-400 transition-colors"
-            >
-              Careers
-            </Link>
-            <Link
-              href="/about"
-              className="hover:text-cyan-400 transition-colors"
-            >
-              About
-            </Link>
+          <nav className="hidden md:flex items-center gap-1">
+            <NavLink href="/programs">Launch Programs</NavLink>
+            <NavLink href="/technology/engine">Technology</NavLink>
+            <NavLink href="/investors">Investors</NavLink>
+            <NavLink href="/careers">Careers</NavLink>
+            <NavLink href="/about">About</NavLink>
+            
+            <div className="w-[1px] h-6 bg-white/10 mx-2" />
+            
             <Link
               href="/dashboard"
-              className="text-cyan-400 hover:text-white transition-colors"
+              className="relative px-4 py-2 text-sm font-medium text-white/70 hover:text-white transition-colors group"
             >
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-cyan-400 group-hover:w-1/2 transition-all duration-300 ease-out" />
               Dashboard
             </Link>
           </nav>
 
           {/* MOBILE MENU BUTTON */}
           <button
-            className="md:hidden text-white p-2 rounded hover:bg-white/5 transition"
+            className="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition active:scale-95"
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              className="w-7 h-7"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
+            <Menu className="w-6 h-6" />
           </button>
         </div>
-      </header>
+      </motion.header>
 
       {/* MOBILE MENU */}
       <MobileMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
     </>
   );
+}
+
+function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+    return (
+        <Link
+            href={href}
+            className="relative px-4 py-2 text-sm font-medium text-white/70 hover:text-white transition-colors group"
+        >
+            {children}
+            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-cyan-400 group-hover:w-1/2 transition-all duration-300 ease-out" />
+        </Link>
+    );
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import Galaxy from "./Galaxy";
 import Navbar from "./Navbar";
 
 export default function PageLayout({
@@ -8,20 +7,18 @@ export default function PageLayout({
   subtitle,
   children,
 }: {
-  title: React.ReactNode; // ✅ FIXED
+  title: React.ReactNode;
   subtitle?: string;
   children: React.ReactNode;
 }) {
   return (
     <div className="relative min-h-screen text-white">
-      {/* Background */}
-      <Galaxy />
-
       {/* Content */}
       <main className="relative z-10 pt-32 pb-20 px-6 max-w-7xl mx-auto">
+        
         {/* Header */}
         <div className="mb-16">
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">
+          <h1 className="text-cyan-400 text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">
             {title}
           </h1>
 

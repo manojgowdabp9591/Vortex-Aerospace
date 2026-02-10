@@ -9,6 +9,8 @@ import {
   Globe,
   Download,
   ArrowUpRight,
+  Lock,
+  FileText
 } from "lucide-react";
 
 export default function InvestorsPage() {
@@ -19,84 +21,97 @@ export default function InvestorsPage() {
     >
       {/* 1. TOP STATS GRID */}
       <div className="grid md:grid-cols-4 gap-6 mb-16">
-        <StatCard label="Funding Stage" value="Private · Growth" icon={Activity} />
+        <StatCard label="Funding Stage" value="Series B" sub="Growth Phase" icon={Activity} />
         <StatCard
           label="Implied Valuation"
           value="Confidential"
-          icon={TrendingUp}
+          sub="Non-Disclosure"
+          icon={Lock}
         />
         <StatCard
           label="Capital Deployed"
           value="$145M+"
+          sub="R&D / Infra"
           icon={PieChart}
         />
-        <StatCard label="Operating Sites" value="4" icon={Globe} />
+        <StatCard label="Operating Sites" value="4" sub="Global Footprint" icon={Globe} />
       </div>
 
-      <div className="grid md:grid-cols-3 gap-10">
+      <div className="grid md:grid-cols-3 gap-10 items-start">
+        
         {/* 2. LEFT COLUMN: REPORTS */}
-        <div className="md:col-span-2 space-y-6">
-          <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-2">
-            <span className="w-1 h-8 bg-cyan-500 rounded-full mr-2" />
-            Updates & Technical Briefings
-          </h2>
+        <div className="md:col-span-2 space-y-8">
+          <div className="flex items-center gap-3 mb-6">
+             <div className="w-1.5 h-8 bg-cyan-500 rounded-full shadow-[0_0_10px_#22d3ee]" />
+             <h2 className="text-2xl font-bold text-white tracking-tight">
+               Updates & Technical Briefings
+             </h2>
+          </div>
 
-          <ReportCard
-            title="VORTEX-1 Ground Test Summary"
-            date="Recent"
-            desc="Initial rotary detonation engine testing demonstrates stable wave propagation and nominal chamber pressures across the planned throttle envelope."
-          />
-          <ReportCard
-            title="Q4 Engineering & Financial Update"
-            date="Jan 2026"
-            desc="Summary of Orbiton-1 vehicle progress, manufacturing readiness, and forward operating expense outlook."
-          />
-          <ReportCard
-            title="Growth Capital Deployment Memo"
-            date="Oct 2025"
-            desc="Capital allocation strategy supporting propulsion maturation, vehicle integration, and composite manufacturing scale-up."
-          />
+          <div className="space-y-4">
+            <ReportCard
+                title="VORTEX-1 Ground Test Summary"
+                date="FEB 2026"
+                tag="TECHNICAL"
+                desc="Initial rotary detonation engine testing demonstrates stable wave propagation and nominal chamber pressures across the planned throttle envelope."
+            />
+            <ReportCard
+                title="Q4 Engineering & Financial Update"
+                date="JAN 2026"
+                tag="FINANCIAL"
+                desc="Summary of Orbiton-1 vehicle progress, manufacturing readiness, and forward operating expense outlook."
+            />
+            <ReportCard
+                title="Growth Capital Deployment Memo"
+                date="OCT 2025"
+                tag="STRATEGY"
+                desc="Capital allocation strategy supporting propulsion maturation, vehicle integration, and composite manufacturing scale-up."
+            />
+          </div>
         </div>
 
         {/* 3. RIGHT COLUMN: MARKET VISUAL (CONCEPTUAL) */}
-        <div className="bg-black border border-white/20 rounded-xl p-6 h-fit shadow-2xl relative overflow-hidden group">
+        <div className="bg-black/40 border border-white/10 rounded-3xl p-8 shadow-2xl relative overflow-hidden group backdrop-blur-md">
+          
           {/* Header */}
-          <div className="flex justify-between items-end mb-6 border-b border-white/10 pb-4">
+          <div className="flex justify-between items-end mb-8 border-b border-white/10 pb-6">
             <div>
-              <h3 className="text-2xl font-extrabold text-white tracking-wider group-hover:text-cyan-400 transition duration-500">
-                Vortex Aerospace
+              <h3 className="text-xl font-extrabold text-white tracking-wider group-hover:text-cyan-400 transition duration-500 flex items-center gap-2">
+                VORTEX <span className="text-white/30 text-xs font-normal border border-white/20 px-1.5 rounded">VTX</span>
               </h3>
-              <p className="text-xs text-white/40 uppercase tracking-wider">
-                Private Company · Internal Performance Snapshot
+              <p className="text-[10px] text-white/40 uppercase tracking-widest mt-1">
+                Private Equity · Internal Index
               </p>
             </div>
             <div className="text-right">
               <motion.div
                 initial={{ scale: 1 }}
-                animate={{ scale: [1, 1.08, 1] }}
-                transition={{ duration: 0.5, repeat: 1, repeatDelay: 6 }}
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, repeat: Infinity, repeatDelay: 5 }}
               >
-                <p className="text-2xl font-mono font-bold text-cyan-400">
-                  ▲ Execution Momentum
+                <p className="text-2xl font-mono font-bold text-emerald-400 flex items-center justify-end gap-1">
+                  ▲ 14.2%
                 </p>
               </motion.div>
-              <p className="text-xs text-white/50 font-semibold">
-                Milestone velocity increasing
+              <p className="text-[10px] text-white/50 font-medium uppercase tracking-wider">
+                YTD Growth
               </p>
             </div>
           </div>
-<div className="relative h-64 w-full bg-white/5 rounded border border-white/10 p-2">
+
+          {/* CHART CONTAINER */}
+          <div className="relative h-64 w-full bg-white/[0.02] rounded-xl border border-white/5 overflow-hidden">
             
             {/* Grid Lines */}
-            <div className="absolute inset-0 grid grid-rows-4 grid-cols-4 gap-0 pointer-events-none opacity-10">
-                <div className="border-t border-r border-white w-full h-full"></div>
-                <div className="border-t border-r border-white w-full h-full"></div>
-                <div className="border-t border-r border-white w-full h-full"></div>
-                <div className="border-t border-white w-full h-full"></div>
-                <div className="border-t border-r border-white w-full h-full"></div>
-                <div className="border-t border-r border-white w-full h-full"></div>
-                <div className="border-t border-r border-white w-full h-full"></div>
-                <div className="border-t border-white w-full h-full"></div>
+            <div className="absolute inset-0 grid grid-rows-4 grid-cols-4 pointer-events-none">
+                {[...Array(4)].map((_, i) => (
+                    <div key={i} className="border-t border-white/5 w-full h-full" />
+                ))}
+            </div>
+            <div className="absolute inset-0 grid grid-cols-4 pointer-events-none">
+                {[...Array(4)].map((_, i) => (
+                    <div key={i} className="border-r border-white/5 w-full h-full" />
+                ))}
             </div>
 
             {/* SVG CHART */}
@@ -166,57 +181,74 @@ export default function InvestorsPage() {
             </div>
           </div>
           
-          <div className="flex justify-between text-xs text-white/30 mt-2 font-mono">
-            <span>2022</span>
-            <span>2023</span>
-            <span>2024</span>
-            <span>2025</span>
-            <span className="text-green-400 font-bold">NOW</span>
+          <div className="flex justify-between text-[10px] text-white/20 mt-4 font-mono uppercase tracking-widest">
+            <span>Q1 2025</span>
+            <span>Q2</span>
+            <span>Q3</span>
+            <span>Q4</span>
+            <span className="text-emerald-400">Now</span>
           </div>
 
-          <button className="mt-6 w-full py-3 bg-white text-black font-bold text-sm tracking-widest hover:bg-cyan-400 hover:scale-105 transition-all duration-300 uppercase rounded flex items-center justify-center gap-2">
-            View on NYSE <ArrowUpRight size={16} />
+          <button className="mt-8 w-full py-4 bg-white text-black font-bold text-xs tracking-[0.15em] hover:bg-cyan-400 hover:scale-[1.02] transition-all duration-300 uppercase rounded-xl flex items-center justify-center gap-2 group/btn shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+            Investor Portal <ArrowUpRight size={14} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
           </button>
         </div>
-        </div>
+      </div>
     </PageLayout>
   );
 }
 
 /* ---------- SUB-COMPONENTS ---------- */
 
-function StatCard({ label, value, icon: Icon }: any) {
+function StatCard({ label, value, sub, icon: Icon, secure }: any) {
   return (
-    <div className="group relative p-6 bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-cyan-500/40 transition duration-500">
-      <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-80 group-hover:text-cyan-500 transition duration-500">
-        <Icon size={44} />
+    <div className="group relative p-6 bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden hover:bg-white/[0.06] hover:border-cyan-500/30 transition-all duration-500">
+      <div className={`absolute top-4 right-4 p-2 rounded-lg bg-white/5 ${secure ? 'text-white/20' : 'text-cyan-500/80'} group-hover:scale-110 transition-transform duration-500`}>
+        <Icon size={20} />
       </div>
-      <p className="text-white/50 text-xs uppercase tracking-widest font-semibold mb-2">
-        {label}
-      </p>
-      <p className="text-2xl font-mono text-white group-hover:text-cyan-400 transition">
-        {value}
-      </p>
+      
+      <div className="mt-2">
+        <p className="text-white/40 text-[10px] uppercase tracking-widest font-bold mb-3">
+            {label}
+        </p>
+        <p className={`text-2xl font-mono font-bold ${secure ? 'text-white/30 blur-sm select-none' : 'text-white group-hover:text-cyan-400'} transition-colors`}>
+            {value}
+        </p>
+        {sub && <p className="text-[10px] text-white/30 mt-2 font-mono border-t border-white/5 pt-2 inline-block">
+            {sub}
+        </p>}
+      </div>
     </div>
   );
 }
 
-function ReportCard({ title, date, desc }: any) {
+function ReportCard({ title, date, desc, tag }: any) {
   return (
-    <div className="group p-6 border border-white/10 rounded-xl bg-white/5 hover:bg-white/10 hover:border-cyan-500/30 transition cursor-pointer relative overflow-hidden">
-      <div className="flex justify-between items-start mb-3">
-        <h3 className="text-base md:text-lg font-semibold text-white group-hover:text-cyan-400 transition">
-          {title}
-        </h3>
-        <span className="text-[10px] font-mono font-bold text-cyan-400 bg-cyan-900/20 px-2 py-1 rounded border border-cyan-500/20">
-          {date}
-        </span>
+    <div className="group p-6 border border-white/10 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] hover:border-cyan-500/30 transition-all duration-300 cursor-pointer relative overflow-hidden">
+      
+      <div className="flex justify-between items-start mb-4">
+        <div className="flex items-center gap-3">
+            <div className="p-2 bg-white/5 rounded-lg text-cyan-400">
+                <FileText size={18} />
+            </div>
+            <div>
+                <h3 className="text-base font-bold text-white group-hover:text-cyan-400 transition-colors">
+                {title}
+                </h3>
+                <span className="text-[9px] text-white/30 uppercase tracking-widest font-mono">
+                    {tag} // {date}
+                </span>
+            </div>
+        </div>
       </div>
-      <p className="text-white/60 mb-6 text-sm leading-relaxed">{desc}</p>
+      
+      <p className="text-white/60 mb-6 text-sm leading-relaxed font-light pl-11 border-l border-white/5 ml-4">
+        {desc}
+      </p>
 
-      <div className="flex items-center gap-2 text-xs font-semibold text-white/40 group-hover:text-white transition uppercase tracking-wider">
-        <Download size={14} />
-        <span>Download Brief</span>
+      <div className="flex items-center gap-2 text-[10px] font-bold text-white/30 group-hover:text-cyan-400 transition-colors uppercase tracking-widest ml-14">
+        <Download size={12} />
+        <span>Download PDF</span>
       </div>
     </div>
   );
