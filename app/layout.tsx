@@ -68,7 +68,6 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "Vortex Aerospace Orbiton Vehicle",
-        type: "image/png",
       },
     ],
   },
