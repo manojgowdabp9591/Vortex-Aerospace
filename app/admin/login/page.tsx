@@ -28,9 +28,7 @@ export default function AdminLoginPage() {
     setError("");
 
     try {
-        // Simulate network delay for effect
         await new Promise(r => setTimeout(r, 1000));
-
         const res = await fetch("/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
